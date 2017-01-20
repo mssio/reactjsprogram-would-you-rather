@@ -1,0 +1,19 @@
+{
+  "name": "would-you-rather",
+  "version": "1.0.0",
+  "description": "React.js Program Redux + Immutable Curriculum",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mssio/reactjsprogram-would-you-rather.git"
+  },
+  "author": "Mario Suharja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mssio/reactjsprogram-would-you-rather/issues"
+  },
+  "homepage": "https://github.com/mssio/reactjsprogram-would-you-rather#readme"
+}
