@@ -1,0 +1,51 @@
+{
+  "users": {
+    "isAuthed": false,
+    "isFetching": false,
+    "error": null,
+    "authedId": null,
+    "[uid]": {
+      "lastUpdated": 0,
+      "info": {
+        "uid": "{uid}",
+        "name": "John Doe",
+        "avatar": "{avatar}"
+      },
+      "decisionsMade": ["{decisionId}"]
+    }
+  },
+
+  "modal": {
+    "decision": "{decision}",
+    "isOpen": true
+  },
+
+  "decisions": {
+    "lastUpdated": 0,
+    "isFetching": false,
+    "error": null,
+    "decisions": {
+      "[decisionId]": {
+        "author": {
+          "uid": "{uid}",
+          "name": "John Doe",
+          "avatar": "{avatar}"
+        },
+        "title": "Yes or No",
+        "firstOption": {
+          "text": "Yes",
+          "selectedCount": 20
+        },
+        "secondOption": {
+          "text": "No",
+          "selectedCount": 19
+        },
+        "timestamp": "timestamp"
+      }
+    }
+  },
+
+  "listeners": {
+    "[listenerId]": true
+  }
+}
