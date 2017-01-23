@@ -4,7 +4,7 @@ import firebase from 'firebase'
 var config = {
   apiKey: 'AIzaSyDeLFe7DCYfq40h96R0B0meoNYVyVDoiE4',
   authDomain: 'would-you-rather-e59e2.firebaseapp.com',
-  databaseURL: 'https://duckr-ceeea.firebaseio.com',
+  databaseURL: 'https://would-you-rather-e59e2.firebaseio.com',
 }
 
 firebase.initializeApp(config)

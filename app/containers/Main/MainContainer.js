@@ -1,9 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as usersActionCreators from 'redux/modules/users'
 import { container, innerContainer } from './styles.css'
 import { Navigation } from 'components'
 
 class MainContainer extends Component {
+  componentDidMount () {
+    this.props.removeFetchingUser()
+  }
+
   render () {
     return (
       <div className={container}>
@@ -16,19 +22,25 @@ class MainContainer extends Component {
   }
 }
 
-const { node, bool } = PropTypes
+const { node, bool, func } = PropTypes
 
 MainContainer.propTypes = {
   children: node.isRequired,
   isAuthed: bool.isRequired,
+  removeFetchingUser: func.isRequired,
 }
 
-function mapStateToProps ({users}, props) {
+function mapStateToProps ({users}) {
   return {
     isAuthed: users.get('isAuthed'),
   }
 }
 
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators(usersActionCreators, dispatch)
+}
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MainContainer)
