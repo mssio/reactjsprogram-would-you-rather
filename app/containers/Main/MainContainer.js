@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import { container, innerContainer } from './styles.css'
 import { Navigation } from 'components'
 
@@ -15,8 +16,19 @@ class MainContainer extends Component {
   }
 }
 
+const { node, bool } = PropTypes
+
 MainContainer.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: node.isRequired,
+  isAuthed: bool.isRequired,
 }
 
-export default MainContainer
+function mapStateToProps ({users}, props) {
+  return {
+    isAuthed: users.get('isAuthed'),
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(MainContainer)

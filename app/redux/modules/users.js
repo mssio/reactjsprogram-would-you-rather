@@ -1,7 +1,23 @@
 import { Map } from 'immutable'
 
+const AUTH_USER = 'AUTH_USER'
+const UNAUTH_USER = 'UNAUTH_USER'
+
+export function authUser (uid) {
+  return {
+    type: AUTH_USER,
+    uid,
+  }
+}
+
+export function unAuthUser () {
+  return {
+    type: UNAUTH_USER
+  }
+}
+
 const initialState = Map({
-  isAtuhed: false,
+  isAuthed: false,
   isFetching: true,
   error: '',
   authedId: '',
@@ -9,6 +25,16 @@ const initialState = Map({
 
 export default function users (state = initialState, action) {
   switch (action.type) {
+    case AUTH_USER:
+      return state.merge(
+        isAuthed: true,
+        authedId: action.uid
+      )
+    case UNAUTH_USER:
+      return state.merge(
+        isAuthed: false,
+        authedId: ''
+      )
     default:
       return state
   }
