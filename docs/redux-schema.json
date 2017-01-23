@@ -11,7 +11,12 @@
         "name": "John Doe",
         "avatar": "{avatar}"
       },
-      "decisionsMade": ["{decisionId}"]
+      "decisionsMade": {
+        "[decisionId]": {
+          "chosen": "firstOption",
+          "text": "Yes"
+        }
+      }
     }
   },
 
