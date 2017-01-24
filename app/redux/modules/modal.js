@@ -5,20 +5,20 @@ const OPEN_MODAL = 'OPEN_MODAL'
 const CLOSE_MODAL = 'CLOSE_MODAL'
 const UPDATE_DECISION_TEXT = 'UPDATE_DECISION_TEXT'
 
-function openModal () {
+export function openModal () {
   return {
     type: OPEN_MODAL,
   }
 }
 
-function closeModal () {
+export function closeModal () {
   return {
     type: CLOSE_MODAL,
   }
 }
 
-// decisionType should be in: (title, firstOption, secondOption)
-function updateDecisionText (decisionType, decisionText) {
+// decisionType should be in: (titleText, firstOptionText, secondOptionText)
+export function updateDecisionText (decisionType, decisionText) {
   return {
     type: UPDATE_DECISION_TEXT,
     decisionType,
@@ -26,7 +26,7 @@ function updateDecisionText (decisionType, decisionText) {
   }
 }
 
-export function saveAndCloseModal () {
+export function saveAndCloseModal (decision) {
   return function (dispatch) {
     saveDecision(decision)
       .then(() => dispatch(closeModal()))
@@ -48,9 +48,8 @@ export default function modal (state = initialState, action) {
         isOpen: true,
       })
     case CLOSE_MODAL:
-      return state.merge({
-        isOpen: false,
-      })
+      // I think it is better just reset state on close
+      return state.merge(initialState)
     case UPDATE_DECISION_TEXT:
       return state.merge({
         [action.decisionType]: action.decisionText,
