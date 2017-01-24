@@ -49,7 +49,7 @@ MainContainer.propTypes = {
 }
 
 MainContainer.contextTypes = {
-  router: object.isRequired
+  router: object.isRequired,
 }
 
 function mapStateToProps ({users}) {
