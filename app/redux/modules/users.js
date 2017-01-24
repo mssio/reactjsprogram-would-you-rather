@@ -1,4 +1,4 @@
-import { Map, fromJS } from 'immutable'
+import { Map } from 'immutable'
 import auth, { logout, saveUser } from 'helpers/auth'
 import { formatUserInfo } from 'helpers/utils'
 
@@ -80,7 +80,7 @@ function user (state = initialUserState, action) {
     case FETCHING_USER_SUCCESS:
       return state.merge({
         info: action.user,
-        lastUpdated: action.timestamp
+        lastUpdated: action.timestamp,
       })
     default:
       return state
