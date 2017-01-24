@@ -22,7 +22,21 @@ const store = createStore(
 const history = syncHistoryWithStore(hashHistory, store)
 
 function checkAuth (nextState, replace) {
-  return true
+  if (store.getState().users.get('isFetching') === true) {
+    return
+  }
+
+  const isAuthed = store.getState().users.get('isAuthed')
+  const nextPathName = nextState.location.pathname
+  if (nextPathName === '/' || nextPathName === '/auth') {
+    if (isAuthed === true) {
+      replace('/results')
+    }
+  } else {
+    if (isAuthed !== true) {
+      replace('/auth')
+    }
+  }
 }
 
 ReactDOM.render(

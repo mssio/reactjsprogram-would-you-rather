@@ -28,7 +28,7 @@ class MainContainer extends Component {
     return this.props.isFetching === true
       ? <Loading />
       : <div className={container}>
-          <Navigation isAuthed={false} />
+          <Navigation isAuthed={this.props.isAuthed} />
           <div className={innerContainer}>
             {this.props.children}
           </div>
