@@ -8,6 +8,7 @@ const FETCHING_USER = 'FETCHING_USER'
 const FETCHING_USER_FAILURE = 'FETCHING_USER_FAILURE'
 const FETCHING_USER_SUCCESS = 'FETCHING_USER_SUCCESS'
 const REMOVE_FETCHING_USER = 'REMOVE_FETCHING_USER'
+const ADD_USER = 'ADD_USER'
 
 export function authUser (uid) {
   return {
@@ -48,6 +49,14 @@ export function fetchingUserSuccess (uid, user, timestamp) {
 export function removeFetchingUser () {
   return {
     type: REMOVE_FETCHING_USER,
+  }
+}
+
+export function addUser (user) {
+  return {
+    type: ADD_USER,
+    user,
+    lastUpdated: Date.now(),
   }
 }
 
@@ -125,6 +134,15 @@ export default function users (state = initialState, action) {
           isFetching: false,
           error: '',
           [action.uid]: user(state.get(action.uid), action),
+        })
+    case ADD_USER:
+      return typeof (state.get(action.user.uid)) !== 'undefined'
+        ? state
+        : state.merge({
+          [action.user.uid]: state.get(action.user.uid).merge({
+            lastUpdated: action.lastUpdated,
+            info: action.user,
+          }),
         })
     case REMOVE_FETCHING_USER:
       return state.merge({

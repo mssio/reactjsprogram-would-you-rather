@@ -72,7 +72,7 @@ export default function Modal (props) {
             className={newDecisionInput}
             placeholder='First Decision' />
         </div>
-        <div className={or}>OR</div>
+        <div className={or}>{'OR'}</div>
         <div className={newDecisionInputContainer}>
           <textarea
             onChange={(e) => props.updateDecisionText('secondOptionText', e.target.value)}
