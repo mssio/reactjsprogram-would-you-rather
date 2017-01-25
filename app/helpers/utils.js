@@ -18,6 +18,6 @@ export function formatDecision (title, firstOption, secondOption, user) {
     secondOption: {
       text: secondOption,
       selectedCount: 0,
-    }
+    },
   }
 }

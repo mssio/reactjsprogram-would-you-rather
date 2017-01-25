@@ -14,7 +14,7 @@ const modalStyles = {
     borderRadius: 5,
     background: '#EBEBEB',
     padding: 0,
-  }
+  },
 }
 
 const { object, string, bool, func } = PropTypes
